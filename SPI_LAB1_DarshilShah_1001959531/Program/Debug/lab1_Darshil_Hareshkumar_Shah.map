@@ -1,0 +1,259 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.5                     
+******************************************************************************
+>> Linked Thu Sep  8 14:15:10 2022
+
+OUTPUT FILE NAME:   <lab1_Darshil_Hareshkumar_Shah.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00000e3d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00000ee4  0003f11c  R  X
+  SRAM                  20000000   00008000  00000202  00007dfe  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000ee4   00000ee4    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000c64   00000c64    r-x .text
+  00000ed0    00000ed0    00000014   00000014    r-- .cinit
+20000000    20000000    00000202   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    00000002   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000c64     
+                  0000026c    000007e4     gpio.obj (.text)
+                  00000a50    00000174     SPI_Lab1_DarshilShah_1001959531_.obj (.text)
+                  00000bc4    00000160     spi1.obj (.text)
+                  00000d24    000000d4     nvic.obj (.text)
+                  00000df8    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00000e3c    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00000e70    00000020     wait.obj (.text)
+                  00000e90    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00000eac    00000010     clock.obj (.text)
+                  00000ebc    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000ec8    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00000ecc    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.cinit     0    00000ed0    00000014     
+                  00000ed0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00000ed8    00000004     (__TI_handler_table)
+                  00000edc    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    00000002     UNINITIALIZED
+                  20000200    00000001     (.common:INTCAPregValue)
+                  20000201    00000001     (.common:temp)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                                 code   ro data   rw data
+       ------                                 ----   -------   -------
+    .\
+       gpio.obj                               2020   0         0      
+       tm4c123gh6pm_startup_ccs.obj           12     620       0      
+       SPI_Lab1_DarshilShah_1001959531_.obj   372    0         2      
+       spi1.obj                               352    0         0      
+       nvic.obj                               212    0         0      
+       wait.obj                               32     0         0      
+       clock.obj                              16     0         0      
+    +--+--------------------------------------+------+---------+---------+
+       Total:                                 3016   620       2      
+                                                                      
+    C:\ti\ccs1120\ccs\tools\compiler\ti-cgt-arm_20.2.5.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       autoinit.c.obj                         68     0         0      
+       boot_cortex_m.c.obj                    52     0         0      
+       copy_zero_init.c.obj                   28     0         0      
+       exit.c.obj                             4      0         0      
+       pre_init.c.obj                         4      0         0      
+    +--+--------------------------------------+------+---------+---------+
+       Total:                                 156    0         0      
+                                                                      
+       Stack:                                 0      0         512    
+       Linker Generated:                      0      20        0      
+    +--+--------------------------------------+------+---------+---------+
+       Grand Total:                           3172   640       514    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00000edc records: 1, size/record: 8, table size: 8
+	.bss: load addr=00000ed0, load size=00000008 bytes, run addr=20000200, run size=00000002 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000ed8 records: 1, size/record: 4, table size: 4
+	index: 0, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00000ecd  C$$EXIT                       
+00000aeb  GPIOE_isr                     
+20000200  INTCAPregValue                
+00000ebd  ResetISR                      
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00000edc  __TI_CINIT_Base               
+00000ee4  __TI_CINIT_Limit              
+00000ed8  __TI_Handler_Table_Base       
+00000edc  __TI_Handler_Table_Limit      
+00000df9  __TI_auto_init_nobinit_nopinit
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00000e91  __TI_zero_init_nomemset       
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00000e3d  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00000ec9  _system_pre_init              
+00000ecd  abort                         
+ffffffff  binit                         
+000008c1  clearPinInterrupt             
+00000d5d  disableNvicInterrupt          
+0000089d  disablePinInterrupt           
+000005d5  disablePinPulldown            
+0000058d  disablePinPullup              
+00000329  disablePort                   
+00000d25  enableNvicInterrupt           
+00000879  enablePinInterrupt            
+000005b1  enablePinPulldown             
+0000055f  enablePinPullup               
+0000026d  enablePort                    
+00000000  g_pfnVectors                  
+0000090b  getPinValue                   
+000009c1  getPortValue                  
+00000bc5  initSpi1                      
+00000ead  initSystemClockTo40Mhz        
+00000b17  main                          
+00000cff  readSpi1Data                  
+00000a9f  readingPortValue              
+00000493  selectPinAnalogInput          
+00000445  selectPinDigitalInput         
+000007af  selectPinInterruptBothEdges   
+0000075f  selectPinInterruptFallingEdge 
+00000805  selectPinInterruptHighLevel   
+0000083f  selectPinInterruptLowLevel    
+0000070f  selectPinInterruptRisingEdge  
+000003f7  selectPinOpenDrainOutput      
+000003a9  selectPinPushPullOutput       
+00000d95  setNvicInterruptPriority      
+000005fd  setPinAuxFunction             
+000004e3  setPinCommitControl           
+000008e5  setPinValue                   
+00000945  setPortValue                  
+00000c55  setSpi1BaudRate               
+00000c8b  setSpi1Mode                   
+00000a51  settingRegister               
+20000201  temp                          
+00000e71  waitMicrosecond               
+00000ce7  writeSpi1Data                 
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  enablePort                    
+00000329  disablePort                   
+000003a9  selectPinPushPullOutput       
+000003f7  selectPinOpenDrainOutput      
+00000445  selectPinDigitalInput         
+00000493  selectPinAnalogInput          
+000004e3  setPinCommitControl           
+0000055f  enablePinPullup               
+0000058d  disablePinPullup              
+000005b1  enablePinPulldown             
+000005d5  disablePinPulldown            
+000005fd  setPinAuxFunction             
+0000070f  selectPinInterruptRisingEdge  
+0000075f  selectPinInterruptFallingEdge 
+000007af  selectPinInterruptBothEdges   
+00000805  selectPinInterruptHighLevel   
+0000083f  selectPinInterruptLowLevel    
+00000879  enablePinInterrupt            
+0000089d  disablePinInterrupt           
+000008c1  clearPinInterrupt             
+000008e5  setPinValue                   
+0000090b  getPinValue                   
+00000945  setPortValue                  
+000009c1  getPortValue                  
+00000a51  settingRegister               
+00000a9f  readingPortValue              
+00000aeb  GPIOE_isr                     
+00000b17  main                          
+00000bc5  initSpi1                      
+00000c55  setSpi1BaudRate               
+00000c8b  setSpi1Mode                   
+00000ce7  writeSpi1Data                 
+00000cff  readSpi1Data                  
+00000d25  enableNvicInterrupt           
+00000d5d  disableNvicInterrupt          
+00000d95  setNvicInterruptPriority      
+00000df9  __TI_auto_init_nobinit_nopinit
+00000e3d  _c_int00_noargs               
+00000e71  waitMicrosecond               
+00000e91  __TI_zero_init_nomemset       
+00000ead  initSystemClockTo40Mhz        
+00000ebd  ResetISR                      
+00000ec9  _system_pre_init              
+00000ecd  C$$EXIT                       
+00000ecd  abort                         
+00000ed8  __TI_Handler_Table_Base       
+00000edc  __TI_CINIT_Base               
+00000edc  __TI_Handler_Table_Limit      
+00000ee4  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  INTCAPregValue                
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000201  temp                          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[67 symbols]
